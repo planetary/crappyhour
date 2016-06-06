@@ -1,3 +1,5 @@
+@import url(https://fonts.googleapis.com/css?family=Lora);
+
 // base font size
 $base-font-size: 16px;
 // base line height
@@ -5,7 +7,7 @@ $base-line-height: 1.6;
 
 // typefaces
 $sans:        Helvetica, sans-serif;
-$serif:       Georgia, serif;
+$serif:       "Lora", serif;
 $mono:        Courier, monospace;
 
 // font weights
