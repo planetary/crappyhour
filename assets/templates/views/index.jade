@@ -20,9 +20,28 @@ block content
         .row
           .clock-col
             .timer-clock
-
+              svg#clock(viewbox='0 0 100 100')
+                circle#face-day(cx='50', cy='50', r='45')
+                g#hands
+                  rect#day(x='48.5', y='12.5', width='5', height='40', rx='2.5', ry='2.55')
           .clock-col
             .timer-clock
+              svg#clock(viewbox='0 0 100 100')
+                circle#face-hour(cx='50', cy='50', r='45')
+                g#hands
+                  rect#hour(x='48.5', y='12.5', width='5', height='40', rx='2.5', ry='2.55')
+          .clock-col
+            .timer-clock
+              svg#clock(viewbox='0 0 100 100')
+                circle#face-min(cx='50', cy='50', r='45')
+                g#hands
+                  rect#min(x='48', y='12.5', width='2', height='40', rx='2', ry='2')
+          .clock-col
+            .timer-clock
+              svg#clock(viewbox='0 0 100 100')
+                circle#face-sec(cx='50', cy='50', r='45')
+                g#hands
+                  rect#sec(x='48', y='12.5', width='3', height='40', rx='2', ry='2')
 
           .clock-col
             .timer-clock

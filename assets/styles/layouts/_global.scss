@@ -19,6 +19,35 @@ html[xmlns] .clearfix {
     height: 1%;
 }
 
+#face-day {
+	stroke-width: 1px;
+  stroke: #777;
+  stroke-dasharray:1,10;
+  fill:#c0ffee;
+}
+#face-hour {
+	stroke-width: 1px;
+  stroke: #777;
+  stroke-dasharray:1,10;
+  fill:#c0ffee;
+}
+#face-min {
+	stroke-width: 1px;
+  stroke: #777;
+  stroke-dasharray:1,10;
+  fill:#c0ffee;
+}
+#face-sec {
+	stroke-width: 1px;
+  stroke: #777;
+  stroke-dasharray:6,6;
+  fill:#c0ffee;
+}
+#hour, #min, #sec {
+	stroke-width: 1px; fill: #333; stroke: #555;
+}
+.sec { stroke-dasharray:4,10; }
+
 
 /* - - - General - - - */
 
@@ -95,9 +124,8 @@ html[xmlns] .clearfix {
     padding:50px 0px;
 
     .timer-clock {
-      width:100px;
-      height:100px;
-      background-color:$gray;
+
+
       margin:0 auto;
     }
 
