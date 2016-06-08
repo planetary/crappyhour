@@ -1,10 +1,322 @@
 /* apply a natural box layout model to all elements, but allowing components to change */
+
+@import url(https://fonts.googleapis.com/css?family=Six+Caps);
+
 html {
     box-sizing: border-box;
+
 }
 
 *,
 *::before,
 *::after {
     box-sizing: inherit;
+}
+
+
+html[xmlns] .clearfix {
+    display: block;
+}
+
+* html .clearfix {
+    height: 1%;
+}
+
+#face-day {
+	stroke-width: 1px;
+  stroke: #777;
+  stroke-dasharray:1,10;
+  fill:#c0ffee;
+}
+#face-hour {
+	stroke-width: 1px;
+  stroke: #777;
+  stroke-dasharray:1,10;
+  fill:#c0ffee;
+}
+#face-min {
+	stroke-width: 1px;
+  stroke: #777;
+  stroke-dasharray:1,10;
+  fill:#c0ffee;
+}
+#face-sec {
+	stroke-width: 1px;
+  stroke: #777;
+  stroke-dasharray:6,6;
+  fill:#c0ffee;
+}
+#hour, #min, #sec {
+	stroke-width: 1px; fill: #333; stroke: #555;
+}
+.sec { stroke-dasharray:4,10; }
+
+
+/* - - - General - - - */
+
+.container {
+  max-width:930px;
+  margin:0 auto;
+  position:relative;
+  padding-left:15px;
+  padding-right:15px;
+}
+.pull-right {
+  float:right;
+}
+
+.row {
+
+}
+.clock-col {
+  padding-right:15px;
+  padding-left:15px;
+  width:25%;
+  display:inline-block;
+}
+
+/* - - - Index - - - */
+
+#header {
+
+  width:100%;
+  padding:50px 0px;
+  overflow:auto;
+
+  .top {
+  width: 100%;
+  background: white;
+  height: 10rem;
+  }
+
+  .logo--container {
+    width: 340px;
+    height: 125px;
+    margin: 20px;
+    position: relative;
+    display:inline-block;
+  }
+
+  .logo {
+    position: absolute;
+    left: -20px;
+    top: 0;
+    width: 340px;
+    height: 220px;
+    clip: rect(0, auto, auto, 0);
+  }
+
+  .clip, .noclip {
+    position: fixed;
+
+    width: 340px;
+    height: auto;
+  }
+
+  .nav-right {
+
+    float:right;
+
+    .button {
+      background-color:transparent;
+      border-radius:0px;
+      border:2px solid $black;
+      border-bottom-width: 3px;
+      font-weight:bold;
+      color:$black;
+      margin-top:15px;
+
+    }
+
+  }
+
+}
+
+
+#content {
+
+  padding-top:50px;
+  padding-bottom:50px;
+  background-color:#c0ffee;
+
+  .countdown {
+    padding:50px 0px;
+
+    .timer-clock {
+
+
+      margin:0 auto;
+    }
+
+    h4 {
+      text-align:center;
+    }
+  }
+
+  .contact-form {
+    overflow: auto;
+    font-family:$sans;
+    .data-input {
+      width:70%;
+      display:inline-block;
+    }
+    input {
+      display:inline-block;
+      width:300px;
+      margin-left:10px;
+      background-color:#c0ffee;
+      border:0px;
+      border-radius: 0px;
+      border-bottom:2px solid $gray;
+    }
+    .submit {
+      background-color:#c0ffee;
+      width:20%;
+      padding:10px 20px;
+      border:2px solid $black;
+      border-bottom:5px solid $black;
+      font-weight:bold;
+      float:right;
+      display:inline-block;
+      margin-top:20px;
+    }
+  }
+
+}
+
+
+#footer {
+  .footer-link {
+    font-family:$sans;
+    font-size:16px;
+    display:inline-block;
+    margin-top:20px;
+    margin-bottom:20px;
+    color:$gray;
+  }
+}
+
+
+.countdown-text {
+  font-family:"Six Caps",$sans;
+  font-size:48px;
+  letter-spacing: 2px;
+  font-weight:300;
+  text-rendering: optimizeLegibility;
+  margin:0px;
+  text-transform: upp
+}
+
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 1200px) {
+
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 960px) {
+  .container {
+    max-width:740px;
+  }
+  #content {
+    .contact-form {
+      overflow: auto;
+      .data-input {
+        width:70%;
+        display:inline-block;
+      }
+      input {
+        display:inline-block;
+        width:200px;
+        margin-left:10px;
+        background-color:#c0ffee;
+        border:0px;
+        border-radius: 0px;
+        border-bottom:2px solid $gray;
+      }
+    }
+  }
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px) {
+
+  #header {
+
+
+
+    .logo {
+      font-size:26px;
+    }
+  }
+
+  #content {
+
+    .contact-form {
+      overflow: auto;
+      text-align:center;
+      .data-input {
+        width:100%;
+      }
+      input {
+        display:inline-block;
+        width:300px;
+        margin-left:10px;
+        background-color:#c0ffee;
+        border:0px;
+        border-radius: 0px;
+        border-bottom:2px solid $gray;
+      }
+
+      .submit {
+        width:50%;
+        float:none;
+        margin-top:20px;
+      }
+
+    }
+
+  }
+
+  .g--quarter {
+        flex: 0 0 48%;
+  }
+  .clock-col {
+    padding-right:15px;
+    padding-left:15px;
+    width:50%;
+    display:inline-block;
+  }
+
+  #footer {
+    text-align:center;
+  }
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width : 610px) {
+
+  #content {
+    .contact-form {
+      overflow: auto;
+      text-align:center;
+      .data-input {
+        width:100%;
+      }
+      input {
+        width:100%;
+        margin-left:0px;
+        text-align:center;
+        margin-bottom:30px;
+        margin-top:15px;
+      }
+
+
+      .submit {
+        width:50%;
+        float:none;
+        margin-top:20px;
+      }
+    }
+  }
+
 }
