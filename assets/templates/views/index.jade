@@ -82,14 +82,14 @@ block content
 
 
       .contact-form
-        form
+        form(action='//planetary.us9.list-manage.com/subscribe/post?u=88418f6cebb48f15836067511&amp;id=6012adfdab' method='post')
           .data-input
             span My name is
-            <input type="text" placeholder="Tony Morris">
+            input(type='text' name='NAME' placeholder='Tony Morris')
             <br>
             span and I'd love to get a reminder at
-            <input type="text" placeholder="email@domain.com">
-          input(type='submit' value="Remind Me").button.submit
+            input(type='email' name='EMAIL' placeholder='email@domain.com')
+          input(type='submit' value='Remind Me').button.submit
 
 
   #footer
