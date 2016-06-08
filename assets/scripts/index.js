@@ -39,10 +39,10 @@ setInterval(function() {
         setClockNumbers(eventEndDate);
 
     if(moment().isAfter(eventEndDate)) {
-        $('.countdown-text.days').text(`88:88`);
-        $('.countdown-text.hours').text(`88:88`);
-        $('.countdown-text.minutes').text(`88:88`);
-        $('.countdown-text.seconds').text(`88:88`);
+        $('.countdown-text.days').text('88:88');
+        $('.countdown-text.hours').text('88:88');
+        $('.countdown-text.minutes').text('88:88');
+        $('.countdown-text.seconds').text('88:88');
     }
 }, 1000);
 
