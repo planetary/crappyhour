@@ -121,7 +121,7 @@ html[xmlns] .clearfix {
 
   .button-container {
     position: absolute;
-    left: calc(22rem);
+    left: calc(21rem);
   }
 
   .button {
@@ -223,6 +223,14 @@ html[xmlns] .clearfix {
   .container {
     max-width:740px;
   }
+
+  #header {
+    .button-container {
+      position: absolute;
+      left: calc(15rem);
+    }
+  }
+
   #content {
     .contact-form {
       overflow: auto;
@@ -247,14 +255,10 @@ html[xmlns] .clearfix {
 @media only screen and (max-width : 768px) {
 
   #header {
-
-
-
-    .logo {
-      font-size:26px;
+    .button-container {
+      display: none;
     }
   }
-
   #content {
 
     .contact-form {
