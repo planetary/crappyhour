@@ -78,57 +78,63 @@ html[xmlns] .clearfix {
 /* - - - Index - - - */
 
 #header {
-
-  width:100%;
-  padding:50px 0px;
-  overflow:auto;
-
-  .top {
-  width: 100%;
   background: white;
-  height: 10rem;
+  height: 8rem;
+  margin: 2rem 0 1rem;
+
+  .container {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .nav-left,
+  .nav-right {
+     flex: 1;
+  }
+
+  .nav-right {
+    text-align: right;
+    position: relative;
   }
 
   .logo--container {
-    width: 340px;
-    height: 125px;
-    margin: 20px;
+    width: 300px;
+    height: 110px;
     position: relative;
     display:inline-block;
   }
 
   .logo {
     position: absolute;
-    left: -20px;
+    left: 0;
     top: 0;
-    width: 340px;
-    height: 220px;
+    width: 300px;
+    height: 9rem;
     clip: rect(0, auto, auto, 0);
   }
 
   .clip, .noclip {
     position: fixed;
-
-    width: 340px;
+    width: 300px;
     height: auto;
   }
 
-  .nav-right {
-
-    float:right;
-
-    .button {
-      background-color:transparent;
-      border-radius:0px;
-      border:2px solid $black;
-      border-bottom-width: 3px;
-      font-weight:bold;
-      color:$black;
-      margin-top:15px;
-
-    }
-
+  .button-container {
+    position: absolute;
+    left: calc(21rem);
   }
+
+  .button {
+    position: fixed;
+    background-color: transparent;
+    border-radius: 0;
+    border: 2px solid $black;
+    border-bottom-width: 5px;
+    font-weight: bold;
+    color: $black;
+    font-size: 18px;
+    padding: 4px 27px;
+    }
 
 }
 
@@ -217,6 +223,14 @@ html[xmlns] .clearfix {
   .container {
     max-width:740px;
   }
+
+  #header {
+    .button-container {
+      position: absolute;
+      left: calc(15rem);
+    }
+  }
+
   #content {
     .contact-form {
       overflow: auto;
@@ -241,14 +255,10 @@ html[xmlns] .clearfix {
 @media only screen and (max-width : 768px) {
 
   #header {
-
-
-
-    .logo {
-      font-size:26px;
+    .button-container {
+      display: none;
     }
   }
-
   #content {
 
     .contact-form {
