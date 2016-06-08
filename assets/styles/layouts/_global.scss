@@ -80,18 +80,34 @@ html[xmlns] .clearfix {
   padding:50px 0px;
   overflow:auto;
 
+  .top {
+  width: 100%;
+  background: white;
+  height: 10rem;
+  }
+
+  .logo--container {
+    width: 340px;
+    height: 125px;
+    margin: 20px;
+    position: relative;
+    display:inline-block;
+  }
+
   .logo {
-    margin:0px;
-    display:inline;
-    z-index: 500;
-    font-family:$serif;
-    float:left;
+    position: absolute;
+    left: -20px;
+    top: 0;
+    width: 340px;
+    height: 220px;
+    clip: rect(0, auto, auto, 0);
+  }
 
-    h2 {
-      display:inline-block;
-      margin:0px;
-    }
+  .clip, .noclip {
+    position: fixed;
 
+    width: 340px;
+    height: auto;
   }
 
   .nav-right {
@@ -177,6 +193,16 @@ html[xmlns] .clearfix {
   }
 }
 
+
+.countdown-text {
+  font-family:"Six Caps",$sans;
+  font-size:48px;
+  letter-spacing: 2px;
+  font-weight:300;
+  text-rendering: optimizeLegibility;
+  margin:0px;
+  text-transform: upp
+}
 
 /* Large Devices, Wide Screens */
 @media only screen and (max-width : 1200px) {
