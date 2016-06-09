@@ -77,17 +77,11 @@ const onScrollInit = () => {
     const wrap = $('.content');
     const content = $('.container-stick');
 
-    const $notify = (message) => {
-        console.log(message);
-    };
-
     const contentStick = new Waypoint.Sticky({
         element: content,
         offset: 185,
         wrapper: false
     });
-
-    // console.log(contentStick);
 
     const $headerScroll = new Waypoint({
         element: wrap,
@@ -95,10 +89,9 @@ const onScrollInit = () => {
             if(direction === 'up')
                 header.removeClass('scrollable');
             else
-              header.addClass('scrollable');
+                header.addClass('scrollable');
         }
     });
-
 }
 
 onScrollInit();

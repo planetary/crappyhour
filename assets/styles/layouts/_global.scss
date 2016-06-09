@@ -104,8 +104,7 @@ html {
 
 .header {
     background: white;
-    height: 8rem;
-    margin: 2rem 0 1rem;
+    margin: 4vh 0 0;
 
     .container {
         display: flex;
@@ -123,8 +122,8 @@ html {
     }
 
     .logo--container {
-        width: 300px;
-        height: 110px;
+        height: 18vh;
+        width: 37vh;
         position: relative;
         display: inline-block;
     }
@@ -133,16 +132,17 @@ html {
         position: absolute;
         left: 0;
         top: 0;
-        width: 300px;
-        height: 9rem;
+        width: 37vh;
+        height: 19vh;
+        overflow: hidden;
         clip: rect(0, auto, auto, 0);
     }
 
     .clip,
     .noclip {
         position: fixed;
-        width: 300px;
-        height: auto;
+        width: 37vh;
+        height: 14vh;
     }
 
     .button-container {
@@ -166,8 +166,7 @@ html {
 
 
 .content {
-    padding-top: 50px;
-    padding-bottom: 50px;
+    padding: 6vh;
     background-color: #c0ffee;
 
     .countdown {
