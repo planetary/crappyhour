@@ -2,6 +2,8 @@ module.exports = {};
 
 const moment = require('moment');
 require('moment-countdown');
+require('waypoints/lib/jquery.waypoints.js');
+require('waypoints/lib/shortcuts/sticky.js');
 
 // Define the Start & End Date
 const eventStartDate = '2016-06-22 18:00:00 GMT-0400';
@@ -68,3 +70,30 @@ setInterval(function() {
     setClockHands(clockVal);
     setCopy(eventCopy);
 }, 1000);
+
+// Waypoints
+const onScrollInit = () => {
+    const header = $('.header');
+    const wrap = $('.content');
+    const content = $('.container-stick');
+
+    const contentStick = new Waypoint({
+        element: content,
+        offset: 185,
+        handler: (direction) => {
+            // do something
+        }
+    });
+
+    const headerScroll = new Waypoint({
+        element: wrap,
+        handler: (direction) => {
+            if(direction === 'up')
+                header.removeClass('scrollable');
+            else
+                header.addClass('scrollable');
+        }
+    });
+};
+
+onScrollInit();

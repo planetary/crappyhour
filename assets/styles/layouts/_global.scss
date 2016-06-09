@@ -71,6 +71,13 @@ html {
     position: relative;
     padding-left: 15px;
     padding-right: 15px;
+
+    &.stuck {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+    }
 }
 
 .pull-right {
