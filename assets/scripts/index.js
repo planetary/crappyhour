@@ -30,8 +30,8 @@ const setClockHands = (date) => {
     const r = (el, deg) => {
         el.setAttribute('transform', `rotate(${deg} 50 50)`);
     };
-    const countdown = moment().countdown(date);
     if (moment(date).isValid()) {
+        const countdown = moment().countdown(date);
         r(document.getElementById('day'), 12 * countdown.days);
         r(document.getElementById('hour'), 30 * (countdown.hours % 12) + countdown.minutes / 2);
         r(document.getElementById('min'), 6 * countdown.minutes);
