@@ -72,11 +72,20 @@ html {
     padding-left: 15px;
     padding-right: 15px;
 
-    &.stuck {
-        position: fixed;
-        top: 0;
-        left: 0;
-        right: 0;
+    &-stick {
+        padding: 0;
+        position: relative;
+        display: block;
+
+        p:first-child {
+            margin-top: 0;
+        }
+
+        &.stuck {
+            position: fixed;
+            top: 185px;
+            max-width: 900px;
+        }
     }
 }
 
@@ -157,7 +166,6 @@ html {
 
 
 .content {
-
     padding-top: 50px;
     padding-bottom: 50px;
     background-color: #c0ffee;
@@ -238,12 +246,11 @@ html {
         max-width: 740px;
     }
 
-    .header {
-        .button-container {
-            position: absolute;
-            left: calc(15rem);
-      }
+    .button-container {
+        position: absolute;
+        left: calc(15rem);
     }
+
 
     .content {
         .contact-form {
@@ -324,7 +331,6 @@ html {
 
 /* Extra Small Devices, Phones */
 @media only screen and (max-width : 610px) {
-
     .content {
         .contact-form {
             overflow: auto;
@@ -351,5 +357,4 @@ html {
             }
         }
     }
-
 }

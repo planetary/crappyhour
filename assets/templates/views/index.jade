@@ -4,8 +4,8 @@ block title
     | #CrappyHour
 
 block content
-  #header.header
-    .container#number-offset
+  .header
+    .container
       .nav-left
         svg.noclip(xmlns='http://www.w3.org/2000/svg', viewbox='0 0 545.8 200')
           path(d='M13.2 34.2c0 17.7 10.2 27.6 23.1 27.6 8.7 0 16-3.4 21.1-13.7l1.5.6c-3.2 12.1-12.5 19.9-26.2 19.9C13.6 68.6.1 55.2.1 35.2.1 15.7 14.8 1.8 33.5 1.8 41 1.8 46.7 4 50.5 7l4.9-5.2h.8v20.8h-1c-5.5-9.4-11-16.5-20.6-16.5-12.9.1-21.4 11.9-21.4 28.1z')
@@ -32,62 +32,58 @@ block content
         .button-container
           a(href="").button.pull-right Join Us!
 
-
-
-  #content.content
+  .content
     .container
-      p Creative happy hour is a response to the collective feeling in New York that we all hve first-rate friends that we don't get to see nearly often enough; even less frequently do our first-rate friend get to meet one another. Every month we designate a time and place to bring people together.
-      h4 The next #crappyhour is June 22nd, 6-8pm at <a href="#">One Mile House.</a>
-      .countdown
-        .row
+      .container-stick
+        p Creative happy hour is a response to the collective feeling in New York that we all have first-rate friends that we don't get to see nearly often enough; even less frequently do our first-rate friend get to meet one another. Every month we designate a time and place to bring people together.
+        h4.event-copy
+        .countdown
+          .row
 
-          .clock-col
-            .timer-clock
-              svg#clock(viewbox='0 0 100 100')
-                circle#face-day(cx='50', cy='50', r='45')
-                g#hands
-                  rect#day(x='48.5', y='12.5', width='5', height='40', rx='2.5', ry='2.55')
-                  h4.countdown-text#hours 11 Days
-          .clock-col
-            .timer-clock
-              svg#clock(viewbox='0 0 100 100')
-                circle#face-hour(cx='50', cy='50', r='45')
-                g#hands
-                  rect#hour(x='48.5', y='12.5', width='5', height='40', rx='2.5', ry='2.55')
-                  h4.countdown-text#hours 23 Hours
-          .clock-col
-            .timer-clock
-              svg#clock(viewbox='0 0 100 100')
-                circle#face-min(cx='50', cy='50', r='45')
-                g#hands
-                  rect#min(x='48', y='12.5', width='2', height='40', rx='2', ry='2')
-                  h4.countdown-text#minutes 48 Minutes
-          .clock-col
-            .timer-clock
-              svg#clock(viewbox='0 0 100 100')
-                circle#face-sec(cx='50', cy='50', r='45')
-                g#hands
-                  rect#sec(x='48', y='12.5', width='3', height='40', rx='2', ry='2')
-                  h4.countdown-text#seconds 08 Seconds
-          .clock-col
-            .timer-clock
-          .clock-col
-            .timer-clock
+            .clock-col
+              .timer-clock
+                svg#clock(viewbox='0 0 100 100')
+                  circle#face-day(cx='50', cy='50', r='45')
+                  g#hands
+                    rect#day(x='48.5', y='12.5', width='5', height='40', rx='2.5', ry='2.55')
+                    h4.countdown-text.days
+            .clock-col
+              .timer-clock
+                svg#clock(viewbox='0 0 100 100')
+                  circle#face-hour(cx='50', cy='50', r='45')
+                  g#hands
+                    rect#hour(x='48.5', y='12.5', width='5', height='40', rx='2.5', ry='2.55')
+                    h4.countdown-text.hours
+            .clock-col
+              .timer-clock
+                svg#clock(viewbox='0 0 100 100')
+                  circle#face-min(cx='50', cy='50', r='45')
+                  g#hands
+                    rect#min(x='48', y='12.5', width='2', height='40', rx='2', ry='2')
+                    h4.countdown-text.minutes
+            .clock-col
+              .timer-clock
+                svg#clock(viewbox='0 0 100 100')
+                  circle#face-sec(cx='50', cy='50', r='45')
+                  g#hands
+                    rect#sec(x='48', y='12.5', width='3', height='40', rx='2', ry='2')
+                    h4.countdown-text.seconds
+            .clock-col
+              .timer-clock
+            .clock-col
+              .timer-clock
 
-        #countdown.countdown
+          #countdown
 
-
-
-
-      .contact-form
-        form(action='//planetary.us9.list-manage.com/subscribe/post?u=88418f6cebb48f15836067511&amp;id=6012adfdab' method='post')
-          .data-input
-            span My name is
-            input(type='text' name='NAME' placeholder='Tony Morris')
-            <br>
-            span and I'd love to get a reminder at
-            input(type='email' name='EMAIL' placeholder='email@domain.com')
-          input(type='submit' value='Remind Me').button.submit
+          .contact-form
+            form(action='//planetary.us9.list-manage.com/subscribe/post?u=88418f6cebb48f15836067511&amp;id=6012adfdab' method='post')
+              .data-input
+                span My name is
+                input(type='text' name='NAME' placeholder='Tony Morris')
+                <br>
+                span and I'd love to get a reminder at
+                input(type='email' name='EMAIL' placeholder='email@domain.com')
+              input(type='submit' value='Remind Me').button.submit
 
 
   #footer.footer
