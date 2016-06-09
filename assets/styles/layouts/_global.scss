@@ -155,7 +155,7 @@ html[xmlns] .clearfix {
     }
 
     h4 {
-      text-align:center;
+      text-align: center;
     }
   }
 
@@ -204,13 +204,14 @@ html[xmlns] .clearfix {
 
 
 .countdown-text {
-  font-family:"Six Caps",$sans;
-  font-size:48px;
+  font-family: "Six Caps",$sans;
+  font-size: 48px;
   letter-spacing: 2px;
-  font-weight:300;
+  font-weight: 300;
   text-rendering: optimizeLegibility;
-  margin:0px;
-  text-transform: upp
+  margin: 0px;
+  text-transform: uppercase;
+  text-align: right;
 }
 
 /* Large Devices, Wide Screens */
