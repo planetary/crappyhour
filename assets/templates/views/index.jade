@@ -4,7 +4,7 @@ block title
     | #CrappyHour
 
 block content
-  #header
+  #header.header
     .container
       .nav-left
         svg.noclip(xmlns='http://www.w3.org/2000/svg', viewbox='0 0 545.8 200')
@@ -34,10 +34,10 @@ block content
 
 
 
-  #content
+  #content.content
     .container
-      p Creative happy hour is a response to the collective feeling in New York that we all have first-rate friends that we don't get to see nearly often enough; even less frequently do our first-rate friend get to meet one another. Every month we designate a time and place to bring people together.
-      h4.event-copy
+      p Creative happy hour is a response to the collective feeling in New York that we all hve first-rate friends that we don't get to see nearly often enough; even less frequently do our first-rate friend get to meet one another. Every month we designate a time and place to bring people together.
+      h4 The next #crappyhour is June 22nd, 6-8pm at <a href="#">One Mile House.</a>
       .countdown
         .row
 
@@ -47,34 +47,34 @@ block content
                 circle#face-day(cx='50', cy='50', r='45')
                 g#hands
                   rect#day(x='48.5', y='12.5', width='5', height='40', rx='2.5', ry='2.55')
-                  h4.countdown-text.days
+                  h4.countdown-text#hours 11 Days
           .clock-col
             .timer-clock
               svg#clock(viewbox='0 0 100 100')
                 circle#face-hour(cx='50', cy='50', r='45')
                 g#hands
                   rect#hour(x='48.5', y='12.5', width='5', height='40', rx='2.5', ry='2.55')
-                  h4.countdown-text.hours
+                  h4.countdown-text#hours 23 Hours
           .clock-col
             .timer-clock
               svg#clock(viewbox='0 0 100 100')
                 circle#face-min(cx='50', cy='50', r='45')
                 g#hands
                   rect#min(x='48', y='12.5', width='2', height='40', rx='2', ry='2')
-                  h4.countdown-text.minutes
+                  h4.countdown-text#minutes 48 Minutes
           .clock-col
             .timer-clock
               svg#clock(viewbox='0 0 100 100')
                 circle#face-sec(cx='50', cy='50', r='45')
                 g#hands
                   rect#sec(x='48', y='12.5', width='3', height='40', rx='2', ry='2')
-                  h4.countdown-text.seconds
+                  h4.countdown-text#seconds 08 Seconds
           .clock-col
             .timer-clock
           .clock-col
             .timer-clock
 
-        #countdown
+        #countdown.countdown
 
 
 
@@ -90,6 +90,6 @@ block content
           input(type='submit' value='Remind Me').button.submit
 
 
-  #footer
+  #footer.footer
     .container
       a(href="#").footer-link Hosted by Planetary
