@@ -2,11 +2,17 @@
  * v0.1 */
 
 // Grid configuration
-$grid-width: 70rem;
+$grid-width: 58rem;
 $gutter: 2%;
 
 $row-spacing: 1rem;
 $corner-radius: 4px;
+
+@mixin container {
+    margin: 0 auto;
+    width: 100%;
+    max-width: $grid-width;
+}
 
 @mixin row {
     margin-bottom: $row-spacing;

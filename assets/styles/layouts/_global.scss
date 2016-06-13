@@ -1,7 +1,5 @@
 /* apply a natural box layout model to all elements, but allowing components to change */
 
-@import url(https://fonts.googleapis.com/css?family=Six+Caps);
-
 html {
     box-sizing: border-box;
 
@@ -13,97 +11,58 @@ html {
     box-sizing: inherit;
 }
 
-
-.clearfix {
-    display: block;
-}
-
-* html .clearfix {
-    height: 1%;
-}
-
-.face-day {
+.face--day {
     stroke-width: 1px;
-    stroke: #777;
-    stroke-dasharray: 1,10;
+    stroke: #000;
+    stroke-dasharray: 1, 5%;
     fill: #c0ffee;
 }
 
-.face-hour {
+.face--hour {
     stroke-width: 1px;
-    stroke: #777;
-    stroke-dasharray: 1,10;
+    stroke: #000;
+    stroke-dasharray: 1, 10.8%;
     fill: #c0ffee;
 }
 
-.face-min {
+.face--min {
     stroke-width: 1px;
-    stroke: #777;
-    stroke-dasharray: 1,10;
+    stroke: #000;
+    stroke-dasharray: 1, 3.16%;
     fill: #c0ffee;
 }
 
-.face-sec {
+.face--sec {
     stroke-width: 1px;
-    stroke: #777;
-    stroke-dasharray: 6,6;
+    stroke: #000;
+    stroke-dasharray: 1, 3.16%;
     fill: #c0ffee;
-}
-
-.hour,
-.min,
-.sec {
-    stroke-width: 1px;
-    fill: #333;
-    stroke: #555;
-}
-
-.sec {
-    stroke-dasharray: 4,10;
 }
 
 
 /* - - - General - - - */
 
 .container {
-    max-width: 930px;
-    margin: 0 auto;
-    position: relative;
-    padding-left: 15px;
-    padding-right: 15px;
-
-    &-stick {
-        padding: 0;
-        position: relative;
-        display: block;
-
-        p:first-child {
-            margin-top: 0;
-        }
-
-        &.stuck {
-            position: fixed;
-            top: 185px;
-            max-width: 900px;
-        }
-    }
+    @include container;
 }
 
-.pull-right {
-    float: right;
+.row {
+    @include row;
 }
 
-.clock-col {
-    padding-right: 15px;
-    padding-left: 15px;
-    width: 25%;
-    display: inline-block;
+.clocks {
+    display: flex;
+    justify-content: space-between;
+}
+
+.clock {
+    @include column-fixed(1 / 4);
+    margin: 0;
 }
 
 /* - - - Index - - - */
 
 .header {
-    background: white;
     margin: 4vh 0 0;
 
     .container {
@@ -111,19 +70,9 @@ html {
         justify-content: space-between;
     }
 
-    .nav-left,
-    .nav-right {
-        flex: 1;
-    }
-
-    .nav-right {
-        text-align: right;
-        position: relative;
-    }
-
     .logo--container {
-        height: 18vh;
-        width: 37vh;
+        height: 13vh;
+        width: 30vh;
         position: relative;
         display: inline-block;
     }
@@ -132,8 +81,8 @@ html {
         position: absolute;
         left: 0;
         top: 0;
-        width: 37vh;
-        height: 19vh;
+        width: 30vh;
+        height: 14vh;
         overflow: hidden;
         clip: rect(0, auto, auto, 0);
     }
@@ -141,90 +90,166 @@ html {
     .clip,
     .noclip {
         position: fixed;
-        width: 37vh;
-        height: 14vh;
+        width: 30vh;
+        height: 11vh;
+
+        .is-scrollable & {
+            position: relative;
+        }
     }
 
-    .button-container {
-        position: absolute;
-        left: calc(21rem);
-    }
+}
 
-    .button {
-        position: fixed;
-        background-color: transparent;
-        border-radius: 0;
-        border: 2px solid $black;
-        border-bottom-width: 5px;
-        font-weight: bold;
-        color: $black;
-        font-size: 18px;
-        padding: 4px 27px;
-    }
+.header-above,
+.header-below {
+    height: 14vh;
 
+    &.is-collapsed {
+        height: 0;
+    }
+}
+
+.header-below.is-scrollable {
+    margin-bottom: 6vh;
+}
+
+.event-copy {
+    font-size: $scale-large;
+
+    a {
+        color: inherit;
+    }
+}
+
+.is-scrollable {
+    position: relative;
 }
 
 
 .content {
-    padding: 6vh;
+    min-height: 90vh;
     background-color: #c0ffee;
+    border-width: 0 1rem;
+    border-style: solid;
+    border-color: $white;
+}
 
-    .countdown {
-        padding: 50px 0;
+.intro {
+    margin-top: 2vh;
+}
 
-        .timer-clock {
-            margin: 0 auto;
+.container-stick {
+    position: fixed;
+    max-width: $grid-width;
+
+    .is-scrollable & {
+        position: relative;
+
+        .clip {
+            height: 0;
         }
 
-        h4 {
-            text-align: center;
+        .logo--container {
+            height: 15vh;
         }
-  }
+    }
+}
 
-    .contact-form {
-        overflow: auto;
-        font-family: $sans;
+.countdown {
+    padding: 0 0 2rem;
 
-        .data-input {
-            width: 70%;
-            display: inline-block;
+    h4 {
+        text-align: center;
+    }
+}
+
+.contact-form {
+    @include row;
+    font-family: $sans;
+
+    form {
+        width: 100%;
+    }
+
+    .submit {
+        width: 100%;
+        background-color: #c0ffee;
+        padding: 15px 20px;
+        border: 2px solid $black;
+        border-bottom: 5px solid $black;
+        font-weight: bold;
+        border-radius: 0;
+        margin-left: 1rem;
+    }
+}
+
+.form--left {
+    width: 66%;
+    float: left;
+
+    input {
+        width: 100%;
+        margin-left: 10px;
+        background-color: #fff;
+        border: 0;
+        border-radius: 0;
+        margin: 0 0 0.25rem 0.5rem;
+        font-family: $serif;
+        opacity: 0.8;
+
+        &:focus {
+            opacity: 1;
         }
+    }
+}
 
-        input {
-            display: inline-block;
-            width: 300px;
-            margin-left: 10px;
-            background-color: #c0ffee;
-            border: 0;
-            border-radius: 0;
-            border-bottom: 2px solid $gray;
-        }
+.data--input {
+    display: flex;
 
-        .submit {
-            background-color: #c0ffee;
-            width: 20%;
-            padding: 10px 20px;
-            border: 2px solid $black;
-            border-bottom: 5px solid $black;
-            font-weight: bold;
-            float: right;
-            display: inline-block;
-            margin-top: 20px;
-        }
-  }
+    span {
+        flex: 0 1 auto;
+        line-height: 1.8;
+    }
 
+    .data--input-field {
+        flex: 1 0 auto;
+    }
+
+    input {
+        max-width: 20rem;
+        padding: 2px 5px;
+    }
+}
+
+.form--right {
+    width: 33%;
+    float: right;
 }
 
 
 .footer {
+    height: 10vh;
+
+    .container {
+        position: relative;
+    }
+
     .footer-link {
         font-family: $sans;
-        font-size: 16px;
-        display: inline-block;
-        margin-top: 20px;
-        margin-bottom: 20px;
-        color: $gray;
+        position: fixed;
+        bottom: 1rem;
+        z-index: -10;
+        text-decoration: none;
+        color: $black;
+        vertical-align: middle;
     }
+}
+
+.logo--planetary {
+    display: inline-block;
+    width: 6rem;
+    padding-left: 0.25rem;
+    vertical-align: middle;
 }
 
 
@@ -241,15 +266,10 @@ html {
 
 /* Medium Devices, Desktops */
 @media only screen and (max-width : 960px) {
-    .container {
+    .container,
+    .is-stuck {
         max-width: 740px;
     }
-
-    .button-container {
-        position: absolute;
-        left: calc(15rem);
-    }
-
 
     .content {
         .contact-form {
@@ -275,12 +295,6 @@ html {
 
 /* Small Devices, Tablets */
 @media only screen and (max-width : 768px) {
-
-    .header {
-        .button-container {
-            display: none;
-        }
-    }
 
     .content {
 
