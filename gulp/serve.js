@@ -25,16 +25,6 @@ module.exports = function(gulp) {
                 // Stop the browser from automatically opening
                 open: false
             }, next);
-
-            // From https://github.com/BrowserSync/browser-sync/issues/823
-            // due to https://github.com/localtunnel/localtunnel/issues/81
-            // bs.emitter.on('service:running', function() {
-            //     bs.instance.tunnel.tunnel_cluster.on('error', function(err) {
-            //         if(err.toString().indexOf('firewall') === -1)
-            //             throw err;
-            //         console.log('localtunnel connection lost; reconnecting...');
-            //     });
-            // });
         }
     );
 

@@ -72,9 +72,7 @@ const setClocks = () => {
     setCopy(eventCopy);
 };
 
-setInterval(function() {
-    setClocks();
-}, 1000);
+setInterval(setClocks, 1000);
 
 const updateContentHeight = () => {
     const contentHeight = $('.container-stick').outerHeight();
@@ -112,7 +110,6 @@ const onScrollInit = () => {
 onScrollInit();
 
 $(document).ready(function() {
-    console.log('hi');
     setClocks();
     updateContentHeight();
 });
