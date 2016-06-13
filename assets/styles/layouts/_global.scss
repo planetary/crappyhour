@@ -59,6 +59,10 @@ html {
 .clock {
     @include column-fixed(1 / 4);
     margin: 0;
+
+    svg {
+        max-width: 100%;
+    }
 }
 
 /* - - - Index - - - */
