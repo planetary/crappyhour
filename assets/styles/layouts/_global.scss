@@ -53,6 +53,7 @@ html {
 .clocks {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
 }
 
 .clock {
@@ -205,6 +206,7 @@ html {
 
 .data--input {
     display: flex;
+    font-weight: bold;
 
     span {
         flex: 0 1 auto;
@@ -218,6 +220,7 @@ html {
     input {
         max-width: 20rem;
         padding: 2px 5px;
+        font-weight: normal;
     }
 }
 
@@ -264,110 +267,68 @@ html {
 }
 
 
-/* Medium Devices, Desktops */
-@media only screen and (max-width : 960px) {
-    .container,
-    .is-stuck {
-        max-width: 740px;
-    }
-
-    .content {
-        .contact-form {
-            overflow: auto;
-
-            .data-input {
-                width: 70%;
-                display: inline-block;
-            }
-
-            input {
-                display: inline-block;
-                width: 200px;
-                margin-left: 10px;
-                background-color: #c0ffee;
-                border: 0;
-                border-radius: 0;
-                border-bottom: 2px solid $gray;
-            }
-      }
-    }
-}
-
 /* Small Devices, Tablets */
 @media only screen and (max-width : 768px) {
 
-    .content {
-
-        .contact-form {
-            overflow: auto;
-            text-align: center;
-
-            .data-input {
-                width: 100%;
-            }
-
-            input {
-                display: inline-block;
-                width: 300px;
-                margin-left: 10px;
-                background-color: #c0ffee;
-                border: 0;
-                border-radius: 0;
-                border-bottom: 2px solid $gray;
-            }
-
-            .submit {
-                width: 50%;
-                float: none;
-                margin-top: 20px;
-            }
-
-        }
-
-  }
-
-    .g--quarter {
-        flex: 0 0 48%;
+    .form--left,
+    .form--right {
+        float: none;
+        width: 100%;
     }
 
-    .clock-col {
-        padding-right: 15px;
-        padding-left: 15px;
-        width: 50%;
-        display: inline-block;
+    .data--input {
+        flex-direction: column;
+        margin-bottom: 1rem;
+
+        span {
+            line-height: 1.2;
+            margin-bottom: 0.5rem;
+        }
+
+        input {
+            max-width: none;
+            margin: 0;
+        }
+    }
+
+    .contact-form {
+        .submit {
+            margin: 0.5rem 0;
+        }
+    }
+
+    .event-copy {
+        font-size: $scale-normal;
+    }
+
+    .header {
+        margin: 4vh 2rem 0;
+    }
+
+    .container-stick {
+        left: 2rem;
+        right: 2rem;
+
+        .header {
+            margin: 4vh 0 0;
+
+            .noclip {
+                height: 19vh;
+            }
+        }
+
+        .is-scrollable & {
+            left: 0;
+            right: 0;
+            padding: 0 1rem;
+        }
+    }
+
+    .clock {
+        @include column-fixed(1 / 2);
     }
 
     .footer {
-        text-align: center;
-    }
-}
-
-/* Extra Small Devices, Phones */
-@media only screen and (max-width : 610px) {
-    .content {
-        .contact-form {
-            overflow: auto;
-            text-align: center;
-
-            .data-input {
-                width: 100%;
-
-            }
-
-            input {
-                width: 100%;
-                margin-left: 0;
-                text-align: center;
-                margin-bottom: 30px;
-                margin-top: 15px;
-            }
-
-
-            .submit {
-                width: 50%;
-                float: none;
-                margin-top: 20px;
-            }
-        }
+        padding: 0 1rem;
     }
 }
