@@ -1,10 +1,334 @@
 /* apply a natural box layout model to all elements, but allowing components to change */
+
 html {
     box-sizing: border-box;
+
 }
 
 *,
 *::before,
 *::after {
     box-sizing: inherit;
+}
+
+.face--day {
+    stroke-width: 1px;
+    stroke: #000;
+    stroke-dasharray: 1, 5%;
+    fill: #c0ffee;
+}
+
+.face--hour {
+    stroke-width: 1px;
+    stroke: #000;
+    stroke-dasharray: 1, 10.8%;
+    fill: #c0ffee;
+}
+
+.face--min {
+    stroke-width: 1px;
+    stroke: #000;
+    stroke-dasharray: 1, 3.16%;
+    fill: #c0ffee;
+}
+
+.face--sec {
+    stroke-width: 1px;
+    stroke: #000;
+    stroke-dasharray: 1, 3.16%;
+    fill: #c0ffee;
+}
+
+
+/* - - - General - - - */
+
+.container {
+    @include container;
+}
+
+.row {
+    @include row;
+}
+
+.clocks {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.clock {
+    @include column-fixed(1 / 4);
+    margin: 0;
+}
+
+/* - - - Index - - - */
+
+.header {
+    margin: 4vh 0 0;
+
+    .container {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    .logo--container {
+        height: 13vh;
+        width: 30vh;
+        position: relative;
+        display: inline-block;
+    }
+
+    .logo {
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 30vh;
+        height: 14vh;
+        overflow: hidden;
+        clip: rect(0, auto, auto, 0);
+    }
+
+    .clip,
+    .noclip {
+        position: fixed;
+        width: 30vh;
+        height: 11vh;
+
+        .is-scrollable & {
+            position: relative;
+        }
+    }
+
+}
+
+.header-above,
+.header-below {
+    height: 14vh;
+
+    &.is-collapsed {
+        height: 0;
+    }
+}
+
+.header-below.is-scrollable {
+    margin-bottom: 6vh;
+}
+
+.event-copy {
+    font-size: $scale-large;
+
+    a {
+        color: inherit;
+    }
+}
+
+.is-scrollable {
+    position: relative;
+}
+
+
+.content {
+    min-height: 90vh;
+    background-color: #c0ffee;
+    border-width: 0 1rem;
+    border-style: solid;
+    border-color: $white;
+}
+
+.intro {
+    margin-top: 2vh;
+}
+
+.container-stick {
+    position: fixed;
+    max-width: $grid-width;
+
+    .is-scrollable & {
+        position: relative;
+
+        .clip {
+            height: 0;
+        }
+
+        .logo--container {
+            height: 15vh;
+        }
+    }
+}
+
+.countdown {
+    padding: 0 0 2rem;
+
+    h4 {
+        text-align: center;
+    }
+}
+
+.contact-form {
+    @include row;
+    font-family: $sans;
+
+    form {
+        width: 100%;
+    }
+
+    .submit {
+        width: 100%;
+        background-color: #c0ffee;
+        padding: 15px 20px;
+        border: 2px solid $black;
+        border-bottom: 5px solid $black;
+        font-weight: bold;
+        border-radius: 0;
+        margin-left: 1rem;
+    }
+}
+
+.form--left {
+    width: 66%;
+    float: left;
+
+    input {
+        width: 100%;
+        margin-left: 10px;
+        background-color: #fff;
+        border: 0;
+        border-radius: 0;
+        margin: 0 0 0.25rem 0.5rem;
+        font-family: $serif;
+        opacity: 0.8;
+
+        &:focus {
+            opacity: 1;
+        }
+    }
+}
+
+.data--input {
+    display: flex;
+    font-weight: bold;
+
+    span {
+        flex: 0 1 auto;
+        line-height: 1.8;
+    }
+
+    .data--input-field {
+        flex: 1 0 auto;
+    }
+
+    input {
+        max-width: 20rem;
+        padding: 2px 5px;
+        font-weight: normal;
+    }
+}
+
+.form--right {
+    width: 33%;
+    float: right;
+}
+
+
+.footer {
+    height: 10vh;
+
+    .container {
+        position: relative;
+    }
+
+    .footer-link {
+        font-family: $sans;
+        position: fixed;
+        bottom: 1rem;
+        z-index: -10;
+        text-decoration: none;
+        color: $black;
+        vertical-align: middle;
+    }
+}
+
+.logo--planetary {
+    display: inline-block;
+    width: 6rem;
+    padding-left: 0.25rem;
+    vertical-align: middle;
+}
+
+
+.countdown-text {
+    font-family: "Six Caps", $sans;
+    font-size: 48px;
+    letter-spacing: 2px;
+    font-weight: 300;
+    text-rendering: optimizeLegibility;
+    margin: 0;
+    text-transform: uppercase;
+}
+
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px) {
+
+    .form--left,
+    .form--right {
+        float: none;
+        width: 100%;
+    }
+
+    .data--input {
+        flex-direction: column;
+        margin-bottom: 1rem;
+
+        span {
+            line-height: 1.2;
+            margin-bottom: 0.5rem;
+        }
+
+        input {
+            max-width: none;
+            margin: 0;
+        }
+    }
+
+    .contact-form {
+        .submit {
+            margin: 0.5rem 0;
+        }
+    }
+
+    .event-copy {
+        font-size: $scale-normal;
+    }
+
+    .header {
+        margin: 4vh 2rem 0;
+    }
+
+    .container-stick {
+        left: 2rem;
+        right: 2rem;
+
+        .header {
+            margin: 4vh 0 0;
+
+            .noclip {
+                height: 19vh;
+            }
+        }
+
+        .is-scrollable & {
+            left: 0;
+            right: 0;
+            padding: 0 1rem;
+        }
+    }
+
+    .clock {
+        @include column-fixed(1 / 2);
+    }
+
+    .footer {
+        padding: 0 1rem;
+    }
 }

@@ -69,12 +69,15 @@
     "mocha-junit-reporter": "^1.9.1",
     "mock-fs": "^3.6.0",
     "mock-gulp-dest": "^0.1.1",
+    "moment": "^2.13.0",
+    "moment-countdown": "0.0.3",
     "proxyquire": "^1.7.3",
     "rewire": "^2.5.1",
     "run-sequence": "^1.1.5",
     "through2": "^2.0.0",
     "vinyl-buffer": "^1.0.0",
     "vinyl-source-stream": "^1.1.0",
-    "watchify": "^3.7.0"
+    "watchify": "^3.7.0",
+    "waypoints": "^4.0.0"
   }
 }

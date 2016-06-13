@@ -11,6 +11,7 @@ html
             block title
                 | Airframe
         link(rel="stylesheet", href="styles/main.css")
+
         block head
           //- Additional head content (scripts, styles.
 
@@ -18,6 +19,19 @@ body
     block content
 
     script(src="//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js")
+    script(src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js")
+    script.
+      WebFont.load({
+        google: {
+          families: ['Six Caps'],
+          text: '01234567890HoursMinuteScdDay'
+        },
+        google: {
+          families: ['Lora', 'Work Sans', 'Six Caps']
+        }
+      });
+
     script(src="scripts/bundle.js")
+
     block scripts
       //- Additional scripts.
