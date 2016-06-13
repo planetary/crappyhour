@@ -2,6 +2,8 @@ module.exports = {};
 
 const moment = require('moment');
 require('moment-countdown');
+require('waypoints/lib/jquery.waypoints.js');
+require('waypoints/lib/shortcuts/sticky.js');
 
 // Define the Start & End Date
 const eventStartDate = '2016-06-22 18:00:00 GMT-0400';
@@ -32,10 +34,10 @@ const setClockHands = (date) => {
     };
     if (moment(date).isValid()) {
         const countdown = moment().countdown(date);
-        r(document.getElementById('day'), 12 * countdown.days);
-        r(document.getElementById('hour'), 30 * (countdown.hours % 12) + countdown.minutes / 2);
-        r(document.getElementById('min'), 6 * countdown.minutes);
-        r(document.getElementById('sec'), 6 * countdown.seconds);
+        r(document.querySelectorAll('#day')[0], 12 * countdown.days);
+        r(document.querySelectorAll('#hour')[0], 15 * (countdown.hours) + countdown.minutes / 2);
+        r(document.querySelectorAll('#min')[0], 6 * countdown.minutes);
+        r(document.querySelectorAll('#sec')[0], 6 * countdown.seconds);
     } else {
 
         // spin the hands
@@ -47,24 +49,67 @@ const setCopy = (text) => {
         $('.event-copy').append(text);
 };
 
-setInterval(function() {
+const setClocks = () => {
     let clockVal;
     let eventCopy;
 
     if(beforeEvent) {
         clockVal = eventStartDate;
-        eventCopy = `The next #crappyhour is June 22nd, 6-8pm at <a href="">One Mile House</a>.`;
+        eventCopy = `The next #CrappyHourNYC is June 22nd, 6-8pm at` +
+        ` <a href="">One Mile House</a>.`;
     } else if(duringEvent) {
         clockVal = eventEndDate;
-        eventCopy = `#crappyhour is happening right now until 8pm, at ` +
+        eventCopy = `#CrappyHourNYC is happening right now until 8pm, at ` +
         `<a href="">One Mile House</a>! If you hurry, you might be ` +
         `able to make it. Sign up below for a reminder about next month's event.`;
     } else {
         clockVal = '88:88';
-        eventCopy = `The next #crappyhour <a href="#">can't come soon enough</a>.`;
+        eventCopy = `The next #CrappyHourNYC <a href="#">can't come soon enough</a>.`;
     }
 
     setClockNumbers(clockVal);
     setClockHands(clockVal);
     setCopy(eventCopy);
-}, 1000);
+};
+
+setInterval(setClocks, 1000);
+
+const updateContentHeight = () => {
+    const contentHeight = $('.container-stick').outerHeight();
+    const logoHeight = $('.header-above').outerHeight();
+    $('.content').css({
+        height: (contentHeight + logoHeight)
+    });
+};
+
+// Waypoints
+const onScrollInit = () => {
+    const header = $('.header-above').html();
+    const wrap = $('.content');
+
+    const grabContent = new Waypoint({
+        element: wrap,
+        handler: (direction) => {
+            if(direction === 'down') {
+                $('.header-below').toggleClass('is-scrollable')
+                    .toggleClass('is-collapsed').html(header);
+                $('.header-above').toggleClass('is-scrollable').html('');
+                wrap.addClass('is-scrollable');
+                updateContentHeight();
+            } else {
+                $('.header-below').toggleClass('is-scrollable')
+                    .toggleClass('is-collapsed').html('');
+                $('.header-above').toggleClass('is-scrollable').html(header);
+                wrap.removeClass('is-scrollable');
+                updateContentHeight();
+            }
+        }
+    });
+};
+
+onScrollInit();
+
+$(document).ready(function() {
+    setClocks();
+    updateContentHeight();
+});
