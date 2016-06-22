@@ -86,6 +86,7 @@ const updateContentHeight = () => {
 const onScrollInit = () => {
     const header = $('.header-above').html();
     const wrap = $('.content');
+    const footer = $('.footer');
 
     const grabContent = new Waypoint({
         element: wrap,
@@ -95,12 +96,14 @@ const onScrollInit = () => {
                     .toggleClass('is-collapsed').html(header);
                 $('.header-above').toggleClass('is-scrollable').html('');
                 wrap.addClass('is-scrollable');
+                footer.addClass('is-visible');
                 updateContentHeight();
             } else {
                 $('.header-below').toggleClass('is-scrollable')
                     .toggleClass('is-collapsed').html('');
                 $('.header-above').toggleClass('is-scrollable').html(header);
                 wrap.removeClass('is-scrollable');
+                footer.removeClass('is-visible');
                 updateContentHeight();
             }
         }

@@ -133,6 +133,8 @@ html {
     border-width: 0 1rem;
     border-style: solid;
     border-color: $white;
+    position: relative;
+    z-index: 500;
 }
 
 .intro {
@@ -232,6 +234,8 @@ html {
 
 .footer {
     height: 10vh;
+    position: relative;
+    z-index: 1;
 
     .container {
         position: relative;
