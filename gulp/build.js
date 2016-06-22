@@ -4,6 +4,7 @@ const path = require('path');
 module.exports = function(gulp, plugins, env) {
     gulp.task('build', 'builds all the registered static resources from assets into build', [
         // Add your build tasks here (must be prefixed with build:)
+        'build:favicon',
         'build:fonts',
         'build:images',
         'build:scripts',
