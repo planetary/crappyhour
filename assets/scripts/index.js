@@ -60,8 +60,8 @@ const setClocks = () => {
     } else if(duringEvent) {
         clockVal = eventEndDate;
         eventCopy = `#CrappyHourNYC is happening right now until 8pm, at ` +
-        `<a href="">One Mile House</a>! If you hurry, you might be ` +
-        `able to make it. Sign up below for a reminder about next month's event.`;
+        `<a href="https://www.google.com/maps/place/One+Mile+House+Bar/@40.7203719,-73.9932229,15z/data=!4m5!3m4!1s0x0:0x923da71b69d47fc1!8m2!3d40.7203719!4d-73.9932229" target="_blank">One Mile House</a> (10 Delancey St, NY, NY 10002)! If you hurry, you might be ` +
+        `able to make it.<br>Sign up below for a reminder about next month's event.`;
     } else {
         clockVal = '88:88';
         eventCopy = `The next #CrappyHourNYC <a href="#">can't come soon enough</a>.`;
