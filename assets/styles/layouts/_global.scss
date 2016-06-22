@@ -2,7 +2,6 @@
 
 html {
     box-sizing: border-box;
-
 }
 
 *,
@@ -52,23 +51,25 @@ html {
 
 .clocks {
     @media only screen and (min-width: 414px) {
-      display: flex;
-      justify-content: space-between;
-      flex-wrap: wrap;
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
     }
 }
 
 .clock {
     @media only screen and (min-width: 414px) {
-      @include column-fixed(1 / 4);
+        @include column-fixed(1 / 4);
     }
+
     margin: 0;
 
     svg {
-      max-width: 100%;
-      @media only screen and (max-width: 414px) {
-        width: 100%;
-      }
+        max-width: 100%;
+
+        @media only screen and (max-width: 414px) {
+            width: 100%;
+        }
     }
 }
 
@@ -336,9 +337,9 @@ html {
     }
 
     .clock {
-      @include media('>phone') {
-        @include column-fixed(1 / 2);
-      }
+        @media only screen and (min-width: 414px) {
+            @include column-fixed(1 / 2);
+        }
     }
 
     .footer {
