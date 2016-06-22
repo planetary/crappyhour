@@ -56,7 +56,7 @@ const setClocks = () => {
     if(beforeEvent) {
         clockVal = eventStartDate;
         eventCopy = `The next #CrappyHourNYC is June 22nd, 6-8pm at` +
-        ` <a href="">One Mile House</a>.`;
+        ` <a href="">One Mile House</a>.<br>10 Delancey St, NY, NY 10002.`;
     } else if(duringEvent) {
         clockVal = eventEndDate;
         eventCopy = `#CrappyHourNYC is happening right now until 8pm, at ` +
