@@ -6,8 +6,8 @@ require('waypoints/lib/jquery.waypoints.js');
 require('waypoints/lib/shortcuts/sticky.js');
 
 // Define the Start & End Date
-const eventStartDate = '2016-06-25 14:05:00 GMT-0400';
-const eventEndDate = '2016-06-25 14:06:00 GMT-0400';
+const eventStartDate = '2016-07-27 18:00:00 GMT-0400';
+const eventEndDate = '2016-07-27 20:00:00 GMT-0400';
 
 // Set Clock Value
 const setClockNumbers = (date) => {
