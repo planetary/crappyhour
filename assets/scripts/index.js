@@ -6,12 +6,8 @@ require('waypoints/lib/jquery.waypoints.js');
 require('waypoints/lib/shortcuts/sticky.js');
 
 // Define the Start & End Date
-const eventStartDate = '2016-06-22 18:00:00 GMT-0400';
-const eventEndDate = '2016-06-22 20:00:00 GMT-0400';
-
-// Define when to switch content
-const beforeEvent = moment().isBefore(eventStartDate);
-const duringEvent = moment().isAfter(eventStartDate) && moment().isBefore(eventEndDate);
+const eventStartDate = '2016-06-25 14:05:00 GMT-0400';
+const eventEndDate = '2016-06-25 14:06:00 GMT-0400';
 
 // Set Clock Value
 const setClockNumbers = (date) => {
@@ -45,11 +41,14 @@ const setClockHands = (date) => {
 };
 
 const setCopy = (text) => {
-    if (!$('.event-copy').html())
-        $('.event-copy').append(text);
+    $('.event-copy').html(text);
 };
 
 const setClocks = () => {
+    // Define when to switch content
+    const beforeEvent = moment().isBefore(eventStartDate);
+    const duringEvent = moment().isAfter(eventStartDate) && moment().isBefore(eventEndDate);
+
     let clockVal;
     let eventCopy;
 
