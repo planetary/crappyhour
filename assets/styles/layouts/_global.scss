@@ -106,6 +106,10 @@ html {
         width: 30vh;
         height: 11vh;
 
+        @include media('<tablet') {
+            position: absolute;
+        }
+
         .is-scrollable & {
             position: relative;
         }
@@ -158,6 +162,10 @@ html {
 .container-stick {
     position: fixed;
     max-width: $grid-width;
+
+    @include media('<tablet') {
+        position: absolute;
+    }
 
     .is-scrollable & {
         position: relative;
@@ -324,6 +332,11 @@ html {
     .container-stick {
         left: 2rem;
         right: 2rem;
+
+        @include media('<tablet') {
+            left: 1rem;
+            right: 1rem;
+        }
 
         .header {
             margin: 4vh 0 0;

@@ -81,12 +81,14 @@ const updateContentHeight = () => {
     });
 };
 
-// Waypoints
-const onScrollInit = () => {
+const initializeWaypoint = () => {
+    // Create media query
+    const desktopQuery = window.matchMedia('(min-width: 760px)');
+
     const header = $('.header-above').html();
     const wrap = $('.content');
 
-    const grabContent = new Waypoint({
+    const waypoint = new Waypoint({
         element: wrap,
         handler: (direction) => {
             if(direction === 'down') {
@@ -102,13 +104,23 @@ const onScrollInit = () => {
                 wrap.removeClass('is-scrollable');
                 updateContentHeight();
             }
-        }
+        },
+        enabled: false
+    });
+
+    if (desktopQuery.matches)
+        waypoint.enable();
+
+    desktopQuery.addListener(function() {
+        if (desktopQuery.matches)
+            waypoint.enable();
+        else
+            waypoint.disable();
     });
 };
-
-onScrollInit();
 
 $(document).ready(function() {
     setClocks();
     updateContentHeight();
+    initializeWaypoint();
 });
