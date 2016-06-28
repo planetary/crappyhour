@@ -105,6 +105,11 @@ html {
         position: fixed;
         width: 30vh;
         height: 11vh;
+        will-change: transform;
+
+        @include media('<tablet') {
+            position: absolute;
+        }
 
         .is-scrollable & {
             position: relative;
@@ -158,6 +163,11 @@ html {
 .container-stick {
     position: fixed;
     max-width: $grid-width;
+    will-change: transform;
+
+    @include media('<tablet') {
+        position: absolute;
+    }
 
     .is-scrollable & {
         position: relative;
