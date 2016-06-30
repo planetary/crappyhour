@@ -63,7 +63,7 @@ const setClocks = () => {
         `able to make it.<br>Sign up below for a reminder about next month's event.`;
     } else {
         clockVal = '88:88';
-        eventCopy = `The next #CrappyHourNYC <a href="https://s3.amazonaws.com/f.cl.ly/items/23011K0q47083R2B0F2q/giphy.gif?v=c461a1fd">can't come soon enough</a>.`;
+        eventCopy = `#CrappyHourNYC can't come soon enough. Stay tuned.`;
     }
 
     setClockNumbers(clockVal);
