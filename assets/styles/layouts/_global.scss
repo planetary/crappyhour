@@ -50,7 +50,7 @@ html {
 }
 
 .clocks {
-    @media only screen and (min-width: 414px) {
+    @include media('>phone') {
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
@@ -58,16 +58,19 @@ html {
 }
 
 .clock {
-    @media only screen and (min-width: 414px) {
-        @include column-fixed(1 / 4);
-    }
+    @include column-fixed(1 / 4);
 
     margin: 0;
+
+    @include media('<tablet', '>phone') {
+        @include column-fixed(1 / 2);
+    }
+
 
     svg {
         max-width: 100%;
 
-        @media only screen and (max-width: 414px) {
+        @include media('<phone') {
             width: 100%;
         }
     }
@@ -292,7 +295,7 @@ html {
 
 
 /* Small Devices, Tablets */
-@media only screen and (max-width: 1024px) {
+@include media('<desktop') {
 
     .form--left,
     .form--right {
@@ -358,10 +361,8 @@ html {
     }
 }
 
-@media only screen and (max-width: 768px) {
+@include media('<tablet', '>phone') {
     .clock {
-        @media only screen and (min-width: 414px) {
-            @include column-fixed(1 / 2);
-        }
+        @include column-fixed(1 / 2);
     }
 }
