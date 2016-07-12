@@ -50,7 +50,7 @@ html {
 }
 
 .clocks {
-    @media only screen and (min-width: 414px) {
+    @include media('>phone') {
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
@@ -58,16 +58,19 @@ html {
 }
 
 .clock {
-    @media only screen and (min-width: 414px) {
-        @include column-fixed(1 / 4);
-    }
+    @include column-fixed(1 / 4);
 
     margin: 0;
+
+    @include media('<tablet', '>phone') {
+        @include column-fixed(1 / 2);
+    }
+
 
     svg {
         max-width: 100%;
 
-        @media only screen and (max-width: 414px) {
+        @include media('<phone') {
             width: 100%;
         }
     }
@@ -106,7 +109,7 @@ html {
         width: 30vh;
         height: 11vh;
 
-        @include media('<tablet') {
+        @include media('<desktop') {
             position: absolute;
         }
 
@@ -163,7 +166,7 @@ html {
     position: fixed;
     max-width: $grid-width;
 
-    @include media('<tablet') {
+    @include media('<desktop') {
         position: absolute;
     }
 
@@ -292,7 +295,7 @@ html {
 
 
 /* Small Devices, Tablets */
-@media only screen and (max-width: 768px) {
+@include media('<desktop') {
 
     .form--left,
     .form--right {
@@ -333,7 +336,7 @@ html {
         left: 2rem;
         right: 2rem;
 
-        @include media('<tablet') {
+        @include media('<desktop') {
             left: 1rem;
             right: 1rem;
         }
@@ -353,13 +356,13 @@ html {
         }
     }
 
-    .clock {
-        @media only screen and (min-width: 414px) {
-            @include column-fixed(1 / 2);
-        }
-    }
-
     .footer {
         padding: 0 1rem;
+    }
+}
+
+@include media('<tablet', '>phone') {
+    .clock {
+        @include column-fixed(1 / 2);
     }
 }
