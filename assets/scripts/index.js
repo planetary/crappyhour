@@ -123,4 +123,8 @@ $(document).ready(function() {
     setClocks();
     updateContentHeight();
     initializeWaypoint();
+
+    $(window).on('resize', function() {
+        updateContentHeight();
+    });
 });
