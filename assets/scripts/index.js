@@ -83,7 +83,7 @@ const updateContentHeight = () => {
 
 const initializeWaypoint = () => {
     // Create media query
-    const desktopQuery = window.matchMedia('(min-width: 760px)');
+    const desktopQuery = window.matchMedia('(min-width: 1024)');
 
     const header = $('.header-above').html();
     const wrap = $('.content');
