@@ -3,7 +3,6 @@ module.exports = {};
 const moment = require('moment');
 require('moment-countdown');
 require('waypoints/lib/jquery.waypoints.js');
-require('waypoints/lib/shortcuts/sticky.js');
 
 // Define the Start & End Date
 const eventStartDate = '2016-07-27 18:00:00 GMT-0400';
@@ -83,7 +82,7 @@ const updateContentHeight = () => {
 
 const initializeWaypoint = () => {
     // Create media query
-    const desktopQuery = window.matchMedia('(min-width: 1024)');
+    const desktopQuery = window.matchMedia('(min-width: 1024px)');
 
     const header = $('.header-above').html();
     const wrap = $('.content');
@@ -108,7 +107,15 @@ const initializeWaypoint = () => {
         enabled: false
     });
 
-    waypoint.enable();
+    if (desktopQuery.matches)
+        waypoint.enable();
+
+    desktopQuery.addListener(function() {
+        if (desktopQuery.matches)
+            waypoint.enable();
+        else
+            waypoint.disable();
+    });
 };
 
 $(document).ready(function() {
