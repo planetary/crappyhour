@@ -3,15 +3,10 @@ module.exports = {};
 const moment = require('moment');
 require('moment-countdown');
 require('waypoints/lib/jquery.waypoints.js');
-require('waypoints/lib/shortcuts/sticky.js');
 
 // Define the Start & End Date
-const eventStartDate = '2016-06-22 18:00:00 GMT-0400';
-const eventEndDate = '2016-06-22 20:00:00 GMT-0400';
-
-// Define when to switch content
-const beforeEvent = moment().isBefore(eventStartDate);
-const duringEvent = moment().isAfter(eventStartDate) && moment().isBefore(eventEndDate);
+const eventStartDate = '2016-07-27 18:00:00 GMT-0400';
+const eventEndDate = '2016-07-27 20:00:00 GMT-0400';
 
 // Set Clock Value
 const setClockNumbers = (date) => {
@@ -45,26 +40,29 @@ const setClockHands = (date) => {
 };
 
 const setCopy = (text) => {
-    if (!$('.event-copy').html())
-        $('.event-copy').append(text);
+    $('.event-copy').html(text);
 };
 
 const setClocks = () => {
+    // Define when to switch content
+    const beforeEvent = moment().isBefore(eventStartDate);
+    const duringEvent = moment().isAfter(eventStartDate) && moment().isBefore(eventEndDate);
+
     let clockVal;
     let eventCopy;
 
     if(beforeEvent) {
         clockVal = eventStartDate;
-        eventCopy = `The next #CrappyHourNYC is June 22nd, 6-8pm at` +
-        ` <a href="">One Mile House</a>.`;
+        eventCopy = `The next #CrappyHourNYC is happening on July 27th, 6-8pm at` +
+        ` <a href="https://www.google.com/maps/place/One+Mile+House+Bar/@40.7203719,-73.9932229,15z/data=!4m5!3m4!1s0x0:0x923da71b69d47fc1!8m2!3d40.7203719!4d-73.9932229" target="_blank">One Mile House</a> (10 Delancey St, NY, NY 10002).`;
     } else if(duringEvent) {
         clockVal = eventEndDate;
         eventCopy = `#CrappyHourNYC is happening right now until 8pm, at ` +
-        `<a href="">One Mile House</a>! If you hurry, you might be ` +
-        `able to make it. Sign up below for a reminder about next month's event.`;
+        `<a href="https://www.google.com/maps/place/One+Mile+House+Bar/@40.7203719,-73.9932229,15z/data=!4m5!3m4!1s0x0:0x923da71b69d47fc1!8m2!3d40.7203719!4d-73.9932229" target="_blank">One Mile House</a> (10 Delancey St, NY, NY 10002)! If you hurry, you might be ` +
+        `able to make it.<br>Sign up below for a reminder about next month's event.`;
     } else {
         clockVal = '88:88';
-        eventCopy = `The next #CrappyHourNYC <a href="#">can't come soon enough</a>.`;
+        eventCopy = `#CrappyHourNYC can't come soon enough. Stay tuned.`;
     }
 
     setClockNumbers(clockVal);
@@ -82,12 +80,14 @@ const updateContentHeight = () => {
     });
 };
 
-// Waypoints
-const onScrollInit = () => {
+const initializeWaypoint = () => {
+    // Create media query
+    const desktopQuery = window.matchMedia('(min-width: 1024px)');
+
     const header = $('.header-above').html();
     const wrap = $('.content');
 
-    const grabContent = new Waypoint({
+    const waypoint = new Waypoint({
         element: wrap,
         handler: (direction) => {
             if(direction === 'down') {
@@ -103,13 +103,27 @@ const onScrollInit = () => {
                 wrap.removeClass('is-scrollable');
                 updateContentHeight();
             }
-        }
+        },
+        enabled: false
+    });
+
+    if (desktopQuery.matches)
+        waypoint.enable();
+
+    desktopQuery.addListener(function() {
+        if (desktopQuery.matches)
+            waypoint.enable();
+        else
+            waypoint.disable();
     });
 };
-
-onScrollInit();
 
 $(document).ready(function() {
     setClocks();
     updateContentHeight();
+    initializeWaypoint();
+
+    $(window).on('resize', function() {
+        updateContentHeight();
+    });
 });
