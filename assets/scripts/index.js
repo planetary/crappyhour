@@ -108,15 +108,7 @@ const initializeWaypoint = () => {
         enabled: false
     });
 
-    if (desktopQuery.matches)
-        waypoint.enable();
-
-    desktopQuery.addListener(function() {
-        if (desktopQuery.matches)
-            waypoint.enable();
-        else
-            waypoint.disable();
-    });
+    waypoint.enable();
 };
 
 $(document).ready(function() {
